@@ -1,0 +1,46 @@
+# Python Virtual Environment
+.venv/
+venv/
+ENV/
+env/
+
+# Python Cache & Artifacts
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Node / Frontend Build Artifacts
+node_modules/
+dist/
+.vite/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment Variables
+.env
+.env.local
+.env.*.local
+
+# Logs
+*.log
+
+# Large Datasets (Do not commit raw CSVs per project specification)
+*.csv
+notebooks/data/*.csv
+data/*.csv
+!notebooks/data/.gitkeep
+
+notebooks/house_price.pkl
+backend/models/house_price.pkl
+*.pkl
+
+# System & IDE files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
