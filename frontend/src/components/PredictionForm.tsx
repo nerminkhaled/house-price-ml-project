@@ -44,9 +44,11 @@ export default function PredictionForm() {
   const [formData, setFormData] = useState<PredictionRequest>({
     location: "",
     carpet_area_sqft: 0,
-    floor_num: 0,
+    floor_number: 0,
     bathroom: 0,
     balcony: 0,
+    car_parking: 0,
+    total_floors: 0,
     furnishing: "",
     transaction: "",
     ownership: "",
@@ -93,11 +95,13 @@ export default function PredictionForm() {
       ...previous,
       [name]:
         name === "carpet_area_sqft" ||
-        name === "floor_num" ||
+        name === "floor_number" ||
         name === "bathroom" ||
-        name === "balcony"
-          ? Number(value)
-          : value,
+        name === "balcony" ||
+        name === "car_parking" ||
+        name === "total_floors"
+            ? Number(value)
+            : value,
     }));
 
     setError("");
@@ -113,8 +117,16 @@ export default function PredictionForm() {
       return "Carpet area must be greater than 0.";
     }
 
-    if (formData.floor_num < 0) {
+    if (formData.floor_number < 0) {
       return "Floor number cannot be negative.";
+    }
+
+    if (formData.car_parking < 0) {
+      return "Number of car parking spaces cannot be negative.";
+    }
+
+     if (formData.total_floors < 1) {
+     return "Total floors must be at least 1.";
     }
 
     if (formData.bathroom < 0) {
@@ -244,22 +256,39 @@ export default function PredictionForm() {
 
         {/* Floor */}
         <div className="form-group">
-          <label htmlFor="floor_num">
+          <label htmlFor="floor_number">
             Floor
           </label>
 
           <input
-            id="floor_num"
-            name="floor_num"
+            id="floor_number"
+            name="floor_number"
             type="number"
             min="0"
-            value={formData.floor_num}
+            value={formData.floor_number}
             onChange={handleChange}
             disabled={isSubmitting}
             placeholder="e.g. 3"
           />
         </div>
+        {/* Total Floors */}
+        <div className="form-group">
+           <label htmlFor="total_floors">
+              Total Floors
+            </label>
 
+          <input
+           id="total_floors"
+           name="total_floors"
+           type="number"
+           min="1"
+           step="1"
+           value={formData.total_floors === 0 ? "" : formData.total_floors}
+           onChange={handleChange}
+           disabled={isSubmitting}
+           placeholder="e.g. 5"
+           />
+        </div>
 
         {/* Bathroom */}
         <div className="form-group">
@@ -300,6 +329,23 @@ export default function PredictionForm() {
           />
         </div>
 
+        {/* Car Parking */}
+        <div className="form-group">
+          <label htmlFor="car_parking">
+            Car Parking
+          </label>
+          <input
+            id="car_parking"
+            name="car_parking"
+            type="number"
+            min="0"
+            step="1"
+            value={formData.car_parking}
+            onChange={handleChange}
+            disabled={isSubmitting}
+            placeholder="e.g. 1"
+          />
+        </div>
 
         {/* Furnishing */}
         <div className="form-group">

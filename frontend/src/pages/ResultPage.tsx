@@ -129,6 +129,37 @@ export default function ResultPage() {
               {state.request.transaction}
             </strong>
           </div>
+          <div>
+            <span>Car Parking</span>
+            <strong>
+              {state.request.car_parking}
+            </strong>
+          </div>
+          <div>
+            <span>Total Floors</span>
+            <strong>
+              {state.request.total_floors}
+            </strong>
+          </div>
+          <div>
+            <span>Facing</span>
+            <strong>
+              {state.request.facing}
+            </strong>
+          </div>
+          <div>
+            <span>Ownership</span>
+            <strong>
+              {state.request.ownership}
+            </strong>
+          </div>
+          <div>
+            <span>Floor Number</span>
+            <strong>
+              {state.request.floor_number}
+            </strong>
+          </div>
+          
 
         </div>
 
