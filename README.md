@@ -66,40 +66,58 @@ Result Page
 
 ### Machine Learning
 Python
+
 Pandas
+
 NumPy
+
 Scikit-learn
+
 Matplotlib
+
 Seaborn
+
 Joblib
 
 ### Backend
 FastAPI
+
 Uvicorn
+
 Pydantic
+
 Pydantic Settings
+
 Pandas
+
 Scikit-learn
+
 Joblib
+
 Pytest
 
 ### Frontend
 React
+
 TypeScript
+
 Vite
+
 React Router
+
 HTML
+
 CSS
 
 ## 🧠 Machine Learning
-##### Dataset
+### Dataset
 The project uses the House Price dataset by Juhi Bhojani from Kaggle.
 
-Dataset:
-https://www.kaggle.com/datasets/juhibhojani/house-price
+Dataset:                                               
+https://www.kaggle.com/datasets/juhibhojani/house-price                                              
 The dataset contains approximately 187,000 real estate listings from India.
 
-#### Model Training
+### Model Training
 
 The project compares multiple regression models:
 Linear Regression
@@ -122,7 +140,7 @@ The selected model is exported as: house_price.pkl
 git clone https://github.com/nerminkhaled/house-price-ml-project.git
 cd house-price-project
 ```  
-#### Backend Setup
+## Backend Setup
 Create Virtual Environment
 ```bash
 python -m venv .venv
@@ -136,11 +154,11 @@ pip install -r requirements.txt
 Environment Variables
 Create `backend/.env`
 
-#### Run the Backend
+### Run the Backend
 From the backend directory `uvicorn app.main:app --reload`
-#### Frontend Setup
+## Frontend Setup
 Open a new terminal: `cd frontend` Install dependencies: `npm install`
-#### Run the Frontend
+### Run the Frontend
 `npm run dev`
 
 ## 🧠 Machine Learning
@@ -167,12 +185,19 @@ This helps identify geographical differences in property prices.
 Box plots are used to compare house prices across furnishing categories and bathroom count
 
 ### Data Cleaning & Feature Engineering
+
 The dataset contains several messy fields that require preprocessing
+
 1.Price Parsing are converted into numerical values and Rows without a usable price are removed
+
 2.Floor Processing are converted into usable numerical floor information
+
 3.Missing Values Missing values are handled using appropriate imputation strategies (mode,median)
+
 4.High Cardinality Locations contain many unique values  project groups less frequent locations into "other"and keeps the most important locations for one-hot encoding
+
 5.Outlier Removal extreme price-per-square-foot values are removed using percentile-based filtering
+
 ### Model Training
 
 A complete Scikit-learn Pipeline is used so that preprocessing and prediction are bundled together.
@@ -209,14 +234,15 @@ MAE — Mean Absolute Error
 RMSE — Root Mean Squared Error
 R² — R-squared
 
-#### 3 Models Comparison
+## 3 Models Comparison
+
 | Model             | MAE        |      RMSE     |      R²     |
 | ----------------- | --:        |      ---:     |      --:    |
 | Linear Regression |5.824509e+06|  1.674985e+08 | -163.556354 |
 | Random Forest     |1.641502e+06| 5.810388e+06  |  0.801983   |
 | Gradient Boosting |3.522234e+06|7.790707e+06   |  0.644003   |
 
-### Architecture
+## Architecture
                    ┌─────────────────────┐
                    │       User          │
                    └──────────┬──────────┘
