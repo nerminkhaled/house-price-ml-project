@@ -274,9 +274,12 @@ R² — R-squared
                     └────────────────────────┘
 
 ## Application Screenshots 
+
 ### Home / Prediction Form
 <img width="1280" height="660" alt="image" src="https://github.com/user-attachments/assets/22636d70-5fb1-4c4b-9a50-e4790bb48b91" />
+
 ### Prediction Result
+
 <img width="1280" height="668" alt="image" src="https://github.com/user-attachments/assets/3a77f643-f9f9-4fea-8b98-064a0c4e029b" />
 
 
