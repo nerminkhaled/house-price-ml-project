@@ -78,7 +78,6 @@ FastAPI
 Uvicorn
 Pydantic
 Pydantic Settings
-Pandas
 Scikit-learn
 Joblib
 Pytest
@@ -138,10 +137,13 @@ Create `backend/.env`
 
 ### Run the Backend
 From the backend directory `uvicorn app.main:app --reload`
+The API will then be available at: `http://localhost:8000`
+Swagger documentation at `:http://localhost:8000/docs`
 ## Frontend Setup
 Open a new terminal: `cd frontend` Install dependencies: `npm install`
 ### Run the Frontend
 `npm run dev`
+The frontend will normally be available at: `http://localhost:5173`
 
 ## 🧠 Machine Learning
 ### Exploratory Data Analysis
@@ -225,58 +227,56 @@ R² — R-squared
 | Gradient Boosting |3.522234e+06|7.790707e+06   |  0.644003   |
 
 ## Architecture
-                   ┌─────────────────────┐
-                   │       User          │
-                   └──────────┬──────────┘
-                              │
-                              ▼
-              ┌────────────────────────────┐
-              │ React + TypeScript + Vite  │
-              │                            │
-              │ Prediction Form            │
-              │ Location Dropdown           │
-              │ Validation                  │
-              └──────────────┬─────────────┘
-                             │
+                        ┌──────────────────┐               
+                        │      User        │
+                        └────────┬─────────┘
+                                 │
+                                 ▼
+                    ┌────────────────────────┐
+                    │ React + TypeScript     │
+                    │      Frontend          │
+                    └───────────┬────────────┘
+                                │
                          POST /predict
-                             │
-                             ▼
-              ┌────────────────────────────┐
-              │          FastAPI           │
-              │                            │
-              │ Prediction API             │
-              │ Request Validation         │
-              │ CORS                       │
-              └──────────────┬─────────────┘
-                             │
-                             ▼
-              ┌────────────────────────────┐
-              │       Preprocessing        │
-              │                            │
-              │ Feature Preparation        │
-              │ DataFrame Construction     │
-              └──────────────┬─────────────┘
-                             │
-                             ▼
-              ┌────────────────────────────┐
-              │   Scikit-learn Pipeline    │
-              │                            │
-              │ Imputation                 │
-              │ Scaling                    │
-              │ One-Hot Encoding           │
-              │ Regression Model            │
-              └──────────────┬─────────────┘
-                             │
-                             ▼
-              ┌────────────────────────────┐
-              │     Predicted Price        │
-              └──────────────┬─────────────┘
-                             │
-                             ▼
-              ┌────────────────────────────┐
-              │      Result Page           │
-              │                            │
-              │ ₹ XX.XX Lac / Cr           │
-              └────────────────────────────┘
+                                │
+                                ▼
+                    ┌────────────────────────┐
+                    │       FastAPI          │
+                    │       Backend          │
+                    └───────────┬────────────┘
+                                │
+                                ▼
+                    ┌────────────────────────┐
+                    │ Input Validation       │
+                    │      Pydantic          │
+                    └───────────┬────────────┘
+                                │
+                                ▼
+                    ┌────────────────────────┐
+                    │    Preprocessing       │
+                    └───────────┬────────────┘
+                                │
+                                ▼
+                    ┌────────────────────────┐
+                    │   house_price.pkl      │
+                    │    ML Pipeline         │
+                    └───────────┬────────────┘
+                                │
+                                ▼
+                    ┌────────────────────────┐
+                    │   Predicted Price      │
+                    └───────────┬────────────┘
+                                │
+                                ▼
+                    ┌────────────────────────┐
+                    │     Result Page        │
+                    │      Frontend          │
+                    └────────────────────────┘
+
+## Application Screenshots 
+### Home / Prediction Form
+<img width="1280" height="660" alt="image" src="https://github.com/user-attachments/assets/22636d70-5fb1-4c4b-9a50-e4790bb48b91" />
+### Prediction Result
+<img width="1280" height="668" alt="image" src="https://github.com/user-attachments/assets/3a77f643-f9f9-4fea-8b98-064a0c4e029b" />
 
 
