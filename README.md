@@ -66,47 +66,29 @@ Result Page
 
 ### Machine Learning
 Python
-
 Pandas
-
 NumPy
-
 Scikit-learn
-
 Matplotlib
-
 Seaborn
-
 Joblib
 
 ### Backend
 FastAPI
-
 Uvicorn
-
 Pydantic
-
 Pydantic Settings
-
 Pandas
-
 Scikit-learn
-
 Joblib
-
 Pytest
 
 ### Frontend
 React
-
 TypeScript
-
 Vite
-
 React Router
-
 HTML
-
 CSS
 
 ## 🧠 Machine Learning
